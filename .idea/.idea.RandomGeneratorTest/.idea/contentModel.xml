@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\danie\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_RandomGeneratorTest.1078103761.00" t="ExcludeRecursive" />
-    <e p="C:\Users\danie\Documents\ProgrammeringsProjekter\RandomGeneratorTest" t="IncludeFlat">
+    <e p="C:\Users\danie\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\danie\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_RandomGeneratorTest.-1605990577.00" t="ExcludeRecursive" />
+    <e p="D:\Code\RandomGeneratorTesting\RandomGeneratorTest" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="RandomGeneratorTest" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
