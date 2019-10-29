@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MathNet.Numerics.Distributions;
 
 
 namespace RandomGeneratorTest
@@ -32,18 +33,18 @@ namespace RandomGeneratorTest
             var rand2Full = Random(123456789,10000,65539,0,2147483648);
             var rand3Full = CollectCSharpRandom(123456789,10000);
             
-            var reject = RunsTest(rand1Full, 11.070);
+            var reject = RunsTest(rand1Full);
             Console.WriteLine("LCG 1 returned " + reject );
-            reject = RunsTest(rand2Full, 15.507);
+            reject = RunsTest(rand2Full);
             Console.WriteLine("LCG 2 returned " + reject );
-            reject = RunsTest(rand3Full,14.067);
+            reject = RunsTest(rand3Full);
             Console.WriteLine("C# implementation returned " + reject );
 
         }
         /**
         * Returns true if the runs test is failed
         */
-        private static bool RunsTest(List<double> rand, double chi)
+        private static bool RunsTest(List<double> rand)
         {
             double last = 0.0;
             bool ascending = true;
@@ -98,8 +99,9 @@ namespace RandomGeneratorTest
                 x0pow2 += (Math.Pow(expectedRuns[i] - runs[i], 2)) / expectedRuns[i];
             }
 
-            
-            return x0pow2 > chi;
+            ChiSquared chi = new ChiSquared(runs.Count-2);
+            var chiVal = chi.InverseCumulativeDistribution(0.95);
+            return x0pow2 > chiVal;
         }
 
         private static double ExpectedRun(int runLength, int randCount)
